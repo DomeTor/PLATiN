@@ -2,17 +2,45 @@
   <img src="Resources/Icons/SEEG_LiTT_Planner_LOGO.png" width="180">
 </p>
 
-PLATiN package (3D Slicer scripted modules) - v3 (self-contained)
+# PLATiN
 
-This package is self-contained and does NOT require older/external copies of the modules.
+**PLATiN** is a package of **3D Slicer scripted modules** for SEEG and LiTT trajectory planning.
 
-Modules included:
-- SEEG_LiTT_Planner.py     (visible; category: PLATiN)
-- TrajectoryFusion.py      (visible; category: PLATiN)
-- PLATiN_Launcher.py       (hidden; adds top menu bar entry "PLATiN")
-- TrajectoryFromPoints.py  (backend file used internally by SEEG_LiTT_Planner; it is loaded directly from this folder)
+**Version:** v3  
+**Distribution:** self-contained
 
-Install:
-1) In Slicer: Edit -> Application Settings -> Modules
-2) Add the folder that contains these .py files to "Additional module paths"
-3) Restart Slicer
+This package is fully self-contained and **does not require any older or external copies** of the modules.
+
+---
+
+## Included Modules
+
+The following Python files are included in the package:
+
+- **SEEG_LiTT_Planner.py**  
+  Visible module (Category: `PLATiN`)  
+  Main interface for SEEG and LiTT trajectory planning.
+
+- **TrajectoryFusion.py**  
+  Visible module (Category: `PLATiN`)  
+  Batch generation of fused NIfTI volumes and optional DICOM export.
+
+- **PLATiN_Launcher.py**  
+  Hidden module  
+  Adds a top menu bar entry named **“PLATiN”**.
+
+- **TrajectoryFromPoints.py**  
+  Backend file used internally by `SEEG_LiTT_Planner.py`.  
+  Loaded directly from the same folder and not exposed as a module.
+
+---
+
+## Installation
+
+1. Open **3D Slicer**
+2. Go to **Edit → Application Settings → Modules**
+3. Add the folder containing the PLATiN `.py` files to  
+   **Additional module paths**
+4. Restart **3D Slicer**
+
+After restarting, the PLATiN modules will appear under the **PLATiN** category.
