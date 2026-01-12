@@ -91,4 +91,4 @@ License information can be added here.
 
 If you use PLATiN in academic work, please cite appropriately.  
 
-
+Tortora D, Couto R, Panzeri S, Parodi C, Resaz M, Ramaglia A, Pacetti M, Nobile G, Francione S, Consales A, Severino M, Rossi A. Advanced neuroimaging in pediatric epilepsy surgery: state of the art and future perspectives. Neuroradiology. 2025 Nov 29. doi: 10.1007/s00234-025-03859-9. Epub ahead of print. PMID: 41317206.
