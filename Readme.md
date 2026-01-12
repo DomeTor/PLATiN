@@ -83,8 +83,6 @@ Detailed usage instructions are available in the **GitHub Wiki**, including:
 
 ## License
 
-License information can be added here.
-
 ---
 
 ## Citation
