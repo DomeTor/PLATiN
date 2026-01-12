@@ -12,10 +12,18 @@ class TrajectoryFusion(ScriptedLoadableModule):
         parent.title = "Trajectory Fusion"
         parent.categories = ["PLATiN"]
         parent.dependencies = []
-        parent.contributors = ["OpenAI"]
+        parent.contributors = ["AI"]
         parent.helpText = "Create and fuse trajectory models between markup points using vtkLineSource."
         parent.acknowledgementText = "Thanks to OpenAI."
         self.parent = parent
+    
+        import os
+        iconPath = os.path.join(
+            os.path.dirname(__file__),
+            'Resources', 'Icons', 'SEEG_LiTT_Planner.png'
+        )
+        if os.path.exists(iconPath):
+            self.parent.icon = qt.QIcon(iconPath)
 
 class TrajectoryFusionWidget(ScriptedLoadableModuleWidget):
     def _tf_log(self, message: str) -> None:

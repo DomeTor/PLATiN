@@ -13,6 +13,13 @@ class SEEG_LiTT_Planner(ScriptedLoadableModule):
             "Planner combinato: SEEG (elettrodi a contatti) e LiTT (fibra + necrosi). "
             "La sezione LiTT richiama la Logic del modulo originale TrajectoryFromPoints."
         )
+        import os
+        iconPath = os.path.join(
+            os.path.dirname(__file__),
+            'Resources', 'Icons', 'SEEG_LiTT_Planner.png'
+        )
+        if os.path.exists(iconPath):
+            self.parent.icon = qt.QIcon(iconPath)
 
 class SEEG_LiTT_PlannerWidget(ScriptedLoadableModuleWidget):
     def setup(self):
