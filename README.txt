@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="Resources/Icons/SEEG_LiTT_Planner_LOGO.png" width="180">
+</p>
+
 PLATiN package (3D Slicer scripted modules) - v3 (self-contained)
 
 This package is self-contained and does NOT require older/external copies of the modules.
