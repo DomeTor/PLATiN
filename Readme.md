@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./Resources/Icons/SEEG_LiTT_Planner_LOGO.png" width="180" alt="PLATiN logo">
+  <img src="./Resources/Icons/SEEG_LiTT_Planner_LOGO.png" width="380" alt="PLATiN logo">
 </p>
 
 # PLATiN
