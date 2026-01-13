@@ -11,6 +11,7 @@
 
 This package is fully self-contained and **does not require any older or external copies** of the modules.
 
+PLATiN is intended for research and methodological purposes only and is not a certified medical device.
 ---
 
 ## Overview
@@ -82,7 +83,7 @@ Detailed usage instructions are available in the **GitHub Wiki**, including:
 ---
 
 ## License
-
+PLATiN is released under the BSD 3-Clause License.
 ---
 
 ## Citation
