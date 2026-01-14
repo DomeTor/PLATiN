@@ -12,7 +12,7 @@ class TrajectoryFusion(ScriptedLoadableModule):
         parent.title = "Trajectory Fusion"
         parent.categories = ["PLATiN"]
         parent.dependencies = []
-        parent.contributors = ["AI"]
+        parent.contributors = ["DomeTor"]
         parent.helpText = "Create and fuse trajectory models between markup points using vtkLineSource."
         parent.acknowledgementText = "Thanks to OpenAI."
         self.parent = parent
