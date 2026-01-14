@@ -16,6 +16,7 @@ import math
 import unittest
 
 import slicer
+import qt  # Qt bindings provided by 3D Slicer
 
 # Import PLATiN modules (they must be available in Slicer additional module paths)
 import SEEG_LiTT_Planner
@@ -33,13 +34,17 @@ class TestPLATiNGeometry(unittest.TestCase):
         self.fids.AddControlPointWorld([0.0, 0.0, 0.0], "E")
         self.fids.AddControlPointWorld([0.0, 0.0, 100.0], "T")
 
-    def _distance(self, a, b):
+    @staticmethod
+    def _distance(a, b):
         return math.sqrt((a[0]-b[0])**2 + (a[1]-b[1])**2 + (a[2]-b[2])**2)
 
     def test_seeg_run_creates_line_and_model(self):
         logic = SEEG_LiTT_Planner.SEEG_LiTT_PlannerLogic()
 
-        # Parameters kept simple and deterministic
+        # Use deterministic QColor objects (PLATiN expects QColor, not QBrush)
+        shaft_color = qt.QColor(255, 255, 255)   # white
+        contact_color = qt.QColor(255, 255, 0)   # yellow
+
         lineNode, elecNode = logic.runSEEG(
             entryLabel="E",
             targetLabel="T",
@@ -48,8 +53,8 @@ class TestPLATiNGeometry(unittest.TestCase):
             gapLenMm=1.5,
             contactRadiusMm=0.4,
             shaftRadiusMm=0.7,
-            shaftColor=slicer.util.getNode("vtkMRMLColorTableNodeFileGenericAnatomyColors") if False else slicer.app.palette().windowText(),  # placeholder, color not tested
-            contactColor=slicer.app.palette().text(),
+            shaftColor=shaft_color,
+            contactColor=contact_color,
             outputBaseName="SEEG_E_T",
             searchOnlyVisible=False,
             overwrite=True,
@@ -75,6 +80,9 @@ class TestPLATiNGeometry(unittest.TestCase):
     def test_litt_multiple_necrosis_creates_expected_nodes(self):
         logic = TrajectoryFromPoints.TrajectoryFromPointsLogic()
 
+        fiber_color = qt.QColor(0, 255, 255)     # cyan
+        necrosis_color = qt.QColor(255, 0, 0)    # red
+
         # Use multiple offsets; parsing supports commas and semicolons in the module
         offsets_txt = "0, 10; 20"
         lineNode, fiberNode, lastNecNode = logic.runMultipleNecrosis(
@@ -84,8 +92,8 @@ class TestPLATiNGeometry(unittest.TestCase):
             offsets_txt=offsets_txt,
             necrosisDiameterMm=12.0,
             necrosisLengthMm=30.0,
-            fiberColor=slicer.app.palette().windowText(),
-            necrosisColor=slicer.app.palette().text(),
+            fiberColor=fiber_color,
+            necrosisColor=necrosis_color,
             outputBaseName="LiTT_E_T",
             searchOnlyVisible=False,
             overwrite=True,
