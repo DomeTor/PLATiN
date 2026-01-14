@@ -1,28 +1,34 @@
 # PLATiN automated tests
 
-This folder contains minimal automated correctness checks intended to satisfy
-the JOSS criterion: "procedures (such as automated tests) for checking correctness".
+PLATiN includes automated unit tests that can be executed inside 3D Slicer using its embedded Python interpreter.
 
-## Requirements
-- 3D Slicer (run tests inside Slicer; the tests rely on the Slicer Python environment)
+# Requirements
+3D Slicer (tested with recent stable versions)
+macOS / Linux
+PLATiN source code cloned locally
 
-## How to run
-Ensure the PLATiN modules are available via "Additional module paths" in Slicer,
-then run:
+#Running the tests
+From a terminal, run:
+/Applications/Slicer.app/Contents/MacOS/Slicer --no-splash \
+  --python-script "/absolute/path/to/PLATiN_Package_v3/Tests/run_tests.py"
 
-- Linux/macOS:
-  Slicer --no-splash --python-script Tests/run_tests.py
+#Note
+Tests must be executed using Slicer’s Python environment.
+Running them with a system Python interpreter is not supported.
 
-- Windows (PowerShell):
-  .\Slicer.exe --no-splash --python-script Tests\run_tests.py
+#Expected output
+A successful test run produces output similar to the following:
+[PLATiN tests] root_dir = /path/to/PLATiN_Package_v3
+[PLATiN tests] tests_dir = /path/to/PLATiN_Package_v3/Tests
 
-The process exits with code 0 on success and 1 on failure.
+test_litt_multiple_necrosis_creates_expected_nodes
+    (test_platin_geometry.TestPLATiNGeometry) ... ok
+test_seeg_run_creates_line_and_model
+    (test_platin_geometry.TestPLATiNGeometry) ... ok
 
-## What is tested
-- SEEG: generation of a trajectory line and electrode model from entry/target fiducials
-- LiTT: generation of multiple necrosis models from a list of offsets
-- Basic polydata existence and minimal geometric sanity checks
+----------------------------------------------------------------------
+Ran 2 tests in 0.2s
 
-## What is NOT tested
-- Clinical validation, collision checking, safety margins, or trajectory optimization
-- DICOM interoperability with specific vendors/robotic systems
+OK
+Warnings related to VTK deprecations or Slicer settings may be printed but do not indicate test failures.
+The process exits with code 0 when all tests pass.
