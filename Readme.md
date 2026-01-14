@@ -82,6 +82,11 @@ Detailed usage instructions are available in the **GitHub Wiki**, including:
 
 ---
 
+## Testing
+See `TESTING.md` for instructions on running automated tests in 3D Slicer.
+
+---
+
 ## License
 PLATiN is released under the BSD 3-Clause License.
 ---
