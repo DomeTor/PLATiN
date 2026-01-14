@@ -2,7 +2,7 @@
 import slicer
 from slicer.ScriptedLoadableModule import *
 
-class PLATiN(ScriptedLoadableModule):
+class PLATiN_Launcher(ScriptedLoadableModule):
     def __init__(self, parent):
         ScriptedLoadableModule.__init__(self, parent)
         parent.title = "PLATiN"
@@ -11,8 +11,9 @@ class PLATiN(ScriptedLoadableModule):
         parent.contributors = []
         parent.helpText = "Launcher for PLATiN tools."
         parent.acknowledgementText = ""
+        parent.hidden = True
 
-class PLATiNWidget(ScriptedLoadableModuleWidget):
+class PLATiN_LauncherWidget(ScriptedLoadableModuleWidget):
     def setup(self):
         ScriptedLoadableModuleWidget.setup(self)
         import qt
